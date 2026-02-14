@@ -3,172 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NARESH VEKTA | The Infinite Sovereign</title>
+    <title>NARESH VEKTA GENERAL STORE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Outfit:wght@100;400;900&display=swap');
-
-        :root {
-            --gold-glow: #ffd700;
-            --deep-black: #000000;
-            --electric-blue: #00e5ff;
-            --glass-panel: rgba(255, 255, 255, 0.03);
+        /* साफ और प्रोफेशनल कलर्स (Amazon Style) */
+        :root { 
+            --header-blue: #232f3e; 
+            --accent-orange: #febd69; 
+            --bg-light: #f3f3f7; 
         }
+        
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background-color: var(--bg-light); color: #333; }
 
-        body {
-            margin: 0; background: var(--deep-black); color: white;
-            font-family: 'Outfit', sans-serif; overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
+        /* सिंपल हेडर */
+        header { background-color: var(--header-blue); color: white; padding: 15px 20px; position: sticky; top: 0; z-index: 1000; text-align: center; }
+        .brand-name { font-size: 20px; font-weight: bold; color: var(--accent-orange); text-transform: uppercase; letter-spacing: 1px; }
+        
+        /* सर्च बार */
+        .search-box { margin-top: 10px; display: flex; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .search-box input { flex: 1; padding: 12px; border: none; border-radius: 4px 0 0 4px; outline: none; }
+        .search-box button { padding: 12px 20px; background: var(--accent-orange); border: none; border-radius: 0 4px 4px 0; cursor: pointer; font-weight: bold; }
 
-        /* Moving Nebula Background */
-        .nebula {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000 100%);
-            z-index: -1;
-        }
+        /* डिलीवरी ट्रैकिंग कार्ड */
+        .section-card { background: white; margin: 15px; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .section-title { font-size: 16px; font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        
+        .track-steps { display: flex; justify-content: space-between; position: relative; }
+        .dot { width: 12px; height: 12px; background: #28a745; border-radius: 50%; position: relative; z-index: 1; }
+        .track-line { position: absolute; top: 5px; left: 0; width: 50%; height: 2px; background: #28a745; z-index: 0; }
 
-        .nebula::before {
-            content: ""; position: absolute; width: 300%; height: 300%;
-            background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
-            animation: drift 60s linear infinite; opacity: 0.3;
-        }
+        /* प्रोडक्ट ग्रिड */
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 12px; }
+        .item-card { background: white; padding: 12px; border-radius: 6px; border: 1px solid #ddd; text-align: center; }
+        .item-card img { width: 100%; height: 130px; object-fit: contain; }
+        .item-title { font-size: 14px; font-weight: 600; margin: 8px 0; height: 35px; overflow: hidden; }
+        .item-price { font-size: 18px; font-weight: bold; color: #B12704; }
+        .item-meta { font-size: 10px; color: #666; margin-top: 4px; }
+        .add-btn { width: 100%; background: #ffd814; border: 1px solid #fcd200; padding: 10px; border-radius: 20px; font-weight: bold; margin-top: 10px; cursor: pointer; }
 
-        @keyframes drift { from { transform: translate(0,0); } to { transform: translate(-100px, -100px); } }
+        /* पेमेंट सेक्शन */
+        .pay-row { display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+        .pay-row i { width: 30px; color: #555; font-size: 18px; }
 
-        /* Floating Futuristic Header */
-        header {
-            padding: 40px 10%; display: flex; justify-content: space-between; align-items: center;
-            background: rgba(0,0,0,0.9); backdrop-filter: blur(50px);
-            border-bottom: 0.1px solid var(--gold-glow); position: sticky; top: 0; z-index: 1000;
-        }
-
-        .brand-logo { 
-            font-family: 'Syncopate', sans-serif; font-size: 32px; letter-spacing: 20px; 
-            color: var(--gold-glow); text-shadow: 0 0 30px var(--gold-glow);
-        }
-
-        /* 3D Animated Hero */
-        .hero-section {
-            height: 100vh; display: flex; flex-direction: column; justify-content: center;
-            align-items: center; text-align: center; perspective: 1000px;
-        }
-
-        .hero-title {
-            font-size: clamp(80px, 20vw, 220px); font-weight: 900; margin: 0;
-            background: linear-gradient(to bottom, #fff, #444);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            transform: translateZ(50px); animation: float 4s ease-in-out infinite;
-        }
-
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-
-        .sub-text {
-            font-size: 14px; letter-spacing: 25px; color: var(--electric-blue);
-            text-transform: uppercase; margin-top: 30px; font-weight: 100;
-        }
-
-        /* Ultra-Premium Grid */
-        .container {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 60px; padding: 100px 10%;
-        }
-
-        .luxury-card {
-            background: var(--glass-panel); border: 1px solid rgba(255,255,255,0.05);
-            padding: 60px; border-radius: 0; transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative; overflow: hidden;
-        }
-
-        .luxury-card::after {
-            content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.1), transparent);
-            transition: 0.5s;
-        }
-
-        .luxury-card:hover::after { left: 100%; }
-
-        .luxury-card:hover {
-            transform: scale(1.02); background: rgba(255, 255, 255, 0.05);
-            border-color: var(--gold-glow); box-shadow: 0 0 100px rgba(255, 215, 0, 0.05);
-        }
-
-        .product-img { width: 100%; height: 500px; object-fit: cover; filter: grayscale(1); transition: 1s; }
-        .luxury-card:hover .product-img { filter: grayscale(0); }
-
-        .card-title { font-size: 45px; font-weight: 900; margin: 40px 0 10px; letter-spacing: -2px; }
-        .price-tag { font-size: 35px; color: var(--gold-glow); font-weight: 100; margin-bottom: 40px; }
-
-        /* The Ultimate Order Button */
-        .btn-zenith {
-            background: none; color: white; border: 1px solid white;
-            padding: 25px 0; width: 100%; font-size: 18px; font-weight: 900;
-            text-transform: uppercase; cursor: pointer; transition: 0.5s; letter-spacing: 10px;
-        }
-
-        .btn-zenith:hover { background: white; color: black; box-shadow: 0 0 50px white; }
-
-        /* Verified Reviews v3.0 */
-        .reviews { padding: 150px 10%; background: #050505; }
-        .review-box { 
-            border-left: 1px solid var(--electric-blue); padding: 40px; 
-            margin-bottom: 40px; background: rgba(255,255,255,0.01);
-        }
-
-        footer { padding: 200px 10% 100px; text-align: center; opacity: 0.5; }
+        footer { background: white; padding: 25px; text-align: center; margin-top: 20px; border-top: 1px solid #ddd; }
+        .footer-info { font-size: 13px; color: #555; line-height: 1.6; }
     </style>
 </head>
 <body>
 
-<div class="nebula"></div>
-
 <header>
-    <div class="brand-logo">VEKTA<span>.</span></div>
-    <div style="font-weight: 100; letter-spacing: 5px;">BEYOND EXCELLENCE</div>
+    <div class="brand-name">NARESH VEKTA GENERAL STORE</div>
+    <div class="search-box">
+        <input type="text" placeholder="किराना सामान खोजें...">
+        <button><i class="fas fa-search"></i></button>
+    </div>
 </header>
 
-<section class="hero-section">
-    <div class="sub-text">ठियोग का गौरव • विश्व का शिखर</div>
-    <h1 class="hero-title">SUPREME</h1>
-    <div style="margin-top: 50px;">
-        <span style="border: 1px solid var(--gold-glow); padding: 15px 40px; color: var(--gold-glow); font-size: 12px; letter-spacing: 10px;">GLOBAL DOMINATION ACTIVE</span>
+<div class="section-card">
+    <div class="section-title"><i class="fas fa-truck" style="color:#28a745;"></i> आर्डर ट्रैकिंग (#NV101)</div>
+    <div class="track-steps">
+        <div class="track-line"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot" style="background:#ccc;"></div>
+        <div class="dot" style="background:#ccc;"></div>
     </div>
-</section>
+    <p style="font-size: 12px; color: #28a745; margin-top: 12px; font-weight: bold;">स्थिति: सामान दुकान से निकल चुका है</p>
+</div>
 
-<div class="container">
-    <div class="luxury-card">
-        <img src="https://images.unsplash.com/photo-1570913149827-d2ac84ab3f9a?w=800" class="product-img">
-        <h3 class="card-title">ROYAL GOLD APPLE</h3>
-        <p style="color: #555; letter-spacing: 2px;">The World's Finest Grade. Only at Naresh Vekta.</p>
-        <div class="price-tag">₹3,500 | $45</div>
-        <button class="btn-zenith">SECURE ORDER</button>
+<div class="grid">
+    <div class="item-card">
+        <img src="https://via.placeholder.com/150" alt="Item">
+        <div class="item-title">Fortune Soyabean Oil (1L)</div>
+        <div class="item-price">₹175</div>
+        <div class="item-meta">Batch: NV-45 | Exp: 2027</div>
+        <button class="add-btn">Add to Cart</button>
     </div>
-
-    <div class="luxury-card">
-        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800" class="product-img">
-        <h3 class="card-title">IMPERIAL SPICES</h3>
-        <p style="color: #555; letter-spacing: 2px;">Purest Essence Shipped Worldwide.</p>
-        <div class="price-tag">₹7,200 | $90</div>
-        <button class="btn-zenith">SECURE ORDER</button>
+    <div class="item-card">
+        <img src="https://via.placeholder.com/150" alt="Item">
+        <div class="item-title">Aashirvaad Atta (5kg)</div>
+        <div class="item-price">₹285</div>
+        <div class="item-meta">Batch: NV-99 | Exp: 2028</div>
+        <button class="add-btn">Add to Cart</button>
     </div>
 </div>
 
-<div class="reviews">
-    <h2 style="font-size: 14px; letter-spacing: 20px; text-align: center; margin-bottom: 100px; color: #333;">GLOBAL TESTIMONIALS</h2>
-    <div class="review-box">
-        <div style="color: var(--gold-glow); margin-bottom: 15px;">★★★★★</div>
-        <p style="font-size: 24px; font-weight: 100; font-style: italic;">"This is not a shop, it's a luxury experience. The quality is unmatched in London."</p>
-        <p style="margin-top: 20px; font-weight: bold; color: var(--electric-blue);">- Alexander Grant, UK</p>
-    </div>
-    <div class="review-box">
-        <div style="color: var(--gold-glow); margin-bottom: 15px;">★★★★★</div>
-        <p style="font-size: 24px; font-weight: 100; font-style: italic;">"नरेश विक्टर स्टोर के सेब जैसा स्वाद पूरी दुनिया में कहीं नहीं है। बेमिसाल!"</p>
-        <p style="margin-top: 20px; font-weight: bold; color: var(--electric-blue);">- राजेश खन्ना, मुम्बई</p>
-    </div>
+<div class="section-card">
+    <div class="section-title"><i class="fas fa-credit-card"></i> भुगतान के तरीके</div>
+    <div class="pay-row"><i class="fas fa-hand-holding-usd"></i> नकद भुगतान (Cash on Delivery)</div>
+    <div class="pay-row"><i class="fas fa-mobile-alt"></i> ऑनलाइन पेमेंट (UPI / Card)</div>
+    <div class="pay-row"><i class="fas fa-book"></i> उधारी खाता (Credit Account)</div>
 </div>
 
 <footer>
-    <div class="brand-logo" style="opacity: 0.1; font-size: 80px;">VEKTA</div>
-    <p style="letter-spacing: 15px; margin-top: 50px;">2026-2042 • THE INFINITE EMPIRE</p>
+    <div class="footer-info">
+        <p><b>नरेश वौक्टा जनरल स्टोर</b></p>
+        <p>ठियोग, शिमला, हिमाचल प्रदेश - 171209</p>
+        <p>संपर्क: +91 8626807986 | nareshvekta318@gmail.com</p>
+        <p style="margin-top:15px; font-size:11px; color:#999;">© 2026 NARESH VEKTA. सर्वाधिकार सुरक्षित।</p>
+    </div>
 </footer>
 
 </body>
